@@ -19,8 +19,8 @@ body {
   transform: rotate(90deg);
 }
 
-.west {
-  transform: rotate(180deg);
+.east {
+  transform: rotate(0deg);
 }
 
 .north {
@@ -28,5 +28,5 @@ body {
 }
 
 .west {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }
