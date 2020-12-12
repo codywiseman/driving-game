@@ -1,8 +1,10 @@
 var $car = document.querySelector('img');
 
+var intervalId = null;
+
 var carDirection = {
   currentDirection: 'east',
-  x: positionX,
+  x: 0,
   y: 0
 };
 
@@ -28,11 +30,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-var positionX = 0;
-
-var intervalId = null;
-
 function startCar () {
-  positionX += 5;
-  $car.style.left = positionX + 'px';
+  carDirection.x += 5;
+  $car.style.left = carDirection.x + 'px';
 }
