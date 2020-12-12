@@ -1,11 +1,9 @@
 var $car = document.querySelector('img');
 
-var offSet = [$car.offsetLeft, $car.offsetTop];
-var intervalId = null;
-
 var carDirection = {
   currentDirection: 'east',
-  location: offSet,
+  x: positionX,
+  y: 0
 };
 
 document.addEventListener('keydown', function (e) {
@@ -30,9 +28,11 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+var positionX = 0;
+
+var intervalId = null;
+
 function startCar () {
-  offSet[0] = $car.offsetLeft;
-  offSet[1] = $car.offsetTop;
-  $car.style.left = offSet[0] + 100 + 'px';
-  carDirection.location = offSet;
+  positionX += 5;
+  $car.style.left = positionX + 'px';
 }
