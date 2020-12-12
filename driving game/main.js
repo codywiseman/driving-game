@@ -26,14 +26,13 @@ document.addEventListener('keydown', function (e) {
     carDirection.currentDirection = 'east';
   }
   if (e.key === ' ') {
-    startCar()
+    intervalId = setInterval(startCar, 16)
   }
 });
 
 function startCar () {
-  $car.style.left = offSet[0] + 10 + 'px';
   offSet[0] = $car.offsetLeft;
   offSet[1] = $car.offsetTop;
+  $car.style.left = offSet[0] + 100 + 'px';
   carDirection.location = offSet;
-  intervalId = setInterval(startCar, 16)
 }
