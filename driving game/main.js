@@ -1,8 +1,12 @@
-var carDirection = {
-  currentDirection: 'east'
-};
-
 var $car = document.querySelector('img');
+
+var offSet = [$car.offsetLeft, $car.offsetTop];
+var intervalId = null;
+
+var carDirection = {
+  currentDirection: 'east',
+  location: offSet,
+};
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowDown') {
@@ -21,4 +25,15 @@ document.addEventListener('keydown', function (e) {
     $car.className = 'east';
     carDirection.currentDirection = 'east';
   }
+  if (e.key === ' ') {
+    startCar()
+  }
 });
+
+function startCar () {
+  $car.style.left = offSet[0] + 10 + 'px';
+  offSet[0] = $car.offsetLeft;
+  offSet[1] = $car.offsetTop;
+  carDirection.location = offSet;
+  intervalId = setInterval(startCar, 16)
+}
