@@ -39,6 +39,8 @@ document.addEventListener('keydown', function (e) {
 });
 
 function startCar() {
-  carDirection.x += 5;
-  $car.style.left = carDirection.x + 'px';
+  if (carDirection.currentDirection === 'east') { carDirection.x += 5; }
+  if (carDirection.currentDirection === 'west') { carDirection.x -= 5; }
+  if (carDirection.currentDirection === 'south') { carDirection.y += 5; }
+  if (carDirection.currentDirection === 'north') { carDirection.y -= 5; }
 }
